@@ -1,0 +1,144 @@
+<!doctype html>
+<!--[if lt IE 9]>
+<html class="old-browser no-js"><![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js"><!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <title>angular-example</title>
+    <meta name="viewport"
+          content="width=device-width">
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <!-- bower:css -->
+    <!-- endbower -->
+    <link rel="stylesheet"
+          href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+
+    <link rel="stylesheet"
+          href="//cdnjs.cloudflare.com/ajax/libs/octicons/2.1.2/octicons.css">
+
+    <link rel="stylesheet"
+          href="style.css">
+
+    <style>
+        .form-group {
+            position: relative;
+        }
+
+        .anchor {
+            display: none;
+        }
+
+        .main-header {
+            background:     #000;
+            padding-bottom: 15px;
+            color:          #eee;
+        }
+
+        .main-header h1 {
+            color: #eee;
+        }
+
+        p.header {
+            font-style: italic;
+        }
+
+        .motto {
+            font-size: 16px;
+        }
+
+        .help-block .list-unstyled {
+            padding: 0;
+            margin:  0;
+            display: block;
+        }
+
+    </style>
+</head>
+<body>
+<header class="main-header">
+    <div class="container">
+
+        <h1 class="header">angular-example</h1>
+        <p class="header motto">Your showcase for angular components</p>
+        <a class="buttons btn btn-primary "
+           href="https://github.com/johannesjo/angular-example/zipball/master">
+            <span class="octicon  octicon-cloud-download"></span> Download ZIP
+            <span class="octicon  octicon-cloud-download"></span></a>
+
+        <a class="buttons btn btn-primary "
+           href="https://github.com/johannesjo/angular-example/tarball/master">
+            <span class="octicon  octicon-cloud-download"></span> Download TAR
+            <span class="octicon  octicon-cloud-download"></span></a>
+
+        <a class="buttons btn btn-primary  github"
+           href="https://github.com/johannesjo/angular-example"><span class="octicon  octicon-mark-github"></span> View On
+            GitHub <span class="octicon  octicon-mark-github"></span></a>
+        <a class="buttons btn btn-primary "
+           href="#demo"><span class="octicon  octicon-squirrel"></span> Demo
+            <span class="octicon  octicon-squirrel"></span></a>
+        <a class="buttons btn btn-primary "
+           href="#discussion"><span class="octicon  octicon-organization"></span> Discuss
+            <span class="octicon  octicon-organization"></span></a>
+        <p class="header"><br>This project is maintained by <a class="header name"
+                                                               href="https://github.com/johannesjo">johannesjo</a></p>
+
+        <a href="https://github.com/johannesjo/angular-example"
+           class="github-button"
+           data-icon="octicon-star"
+           data-count-href="/johannesjo/angular-example/stargazers"
+           data-count-api="/repos/johannesjo/angular-example#stargazers_count">Star</a>
+        <a href="https://github.com/johannesjo/angular-example"
+           class="github-button"
+           data-icon="octicon-git-branch"
+           data-count-href="/johannesjo/angular-example/network"
+           data-count-api="/repos/johannesjo/angular-example#forks_count">Fork</a>
+        <a href="https://github.com/johannesjo/angular-example/issues"
+           class="github-button"
+           data-icon="octicon-issue-opened"
+           data-count-api="/repos/johannesjo/angular-example#open_issues_count">Issue</a>
+
+        <script async
+                defer
+                id="github-bjs"
+                src="https://buttons.github.io/buttons.js"></script>
+    </div>
+</header>
+
+<div class="container">
+    <%= document %>
+</div>
+<hr>
+<div class="container"
+     ng-app="exampleApp"
+     ng-controller="exampleCtrl">
+    <a name="demo"></a>
+
+    <h1>Demos</h1>
+
+    <div ng-include="'example1.html'"
+         class="example"></div>
+</div>
+
+
+<!-- bower:js -->
+<script src="bower_components/angular/angular.js"></script>
+<script src="bower_components/angular-animate/angular-animate.js"></script>
+<script src="bower_components/angular-mocks/angular-mocks.js"></script>
+<!-- endbower -->
+
+<!-- build:js({.tmp,src}) angular-example.min.js -->
+<!-- fileblock:js module -->
+<script src="_angular-example.js"></script>
+<script src="tpls.js"></script>
+<script src="promise-btn-d.js"></script>
+<script src="angular-example-p.js"></script>
+<!-- endfileblock -->
+<!-- endbuild -->
+
+<!-- fileblock:js example -->
+<script src="scripts/example.js"></script>
+<!-- endfileblock -->
+
+</body>
+</html>

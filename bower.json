@@ -1,0 +1,39 @@
+{
+  "name": "angular-example",
+  "description": "Tool for styleguides and showcasing compenents.",
+  "version": "0.1.0",
+  "authors": [
+    "Johannes Millan <johannes.millan@gmail.com>"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/johannesjo/angular-example.git"
+  },
+  "homepage": "http://johannesjo.github.io/angular-example/",
+  "license": "LGPL-2.1",
+  "main": "dist/angular-example.js",
+  "keywords": [
+    "angular",
+    "AngularJS",
+    "form",
+    "forms",
+    "form helper",
+    "buttons",
+    "button",
+    "loading-button"
+  ],
+  "ignore": [
+    "gh-pages",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "~1.3.14"
+  },
+  "devDependencies": {
+    "angular-animate": "~1.3.4",
+    "angular-mocks": "~1.3.13"
+  }
+}
