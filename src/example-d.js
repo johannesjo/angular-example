@@ -9,22 +9,25 @@ angular.module('angularExample')
             compile: function (el)
             {
                 var cfg = angularExample.config;
+                var wrappedContents = angular.element(cfg.previewWrapper).append(el.contents());
 
-                var contents = el.contents();
-                var wrappedContents = angular.element('<div/>').append(contents);
                 // append original code
                 el.append(wrappedContents);
 
+                // clone contents
                 wrappedContents = wrappedContents.clone();
-                wrappedContents.find('description').remove();
 
+                if (cfg.descriptionTagName) {
+                    // remove descriptions from code-view
+                    wrappedContents.find(cfg.descriptionTagName).remove();
+                }
+
+                // get html to manipulate
                 var contentsHtml = wrappedContents.html();
-                // remove initial indent
-                contentsHtml = contentsHtml.replace(/(^|\n)    /g, '$1');
-                // trim blank lines
-                contentsHtml = contentsHtml.replace(/^\s*\n/gm, '');
-
-                var encodedExample = angular.element('<hljs no-escape/>').text(contentsHtml);
+                if (cfg.manipulateSourceViewFn) {
+                    contentsHtml = cfg.manipulateSourceViewFn(contentsHtml);
+                }
+                var encodedExample = angular.element(cfg.hljsEl).text(contentsHtml);
                 // append source-view
                 el.append(encodedExample);
             }
