@@ -8,7 +8,7 @@ angular-example
 
 *Relaxing style- and component guides for AngularJS*
 
-Maintaining a styleguide can be very annoying. A component-showcase might be even painful to deal with. ```angular-example``` makes both those things easy. Have a look at the [example](http://johannesjo.github.io/angular-example/).
+Maintaining a styleguide can be very annoying. A component-showcase might be even painful to deal with. ```angular-example``` makes both those things easy. Have a look at the [example](http://johannesjo.github.io/angular-example/#demo).
 
 [Bug-reports or feature request](https://github.com/johannesjo/angular-example/issues) as well as any other kind of **feedback is highly welcome!**
 
