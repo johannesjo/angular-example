@@ -8,7 +8,7 @@ angular-example
 
 *Relaxing style- and component guides for AngularJS*
 
-Maintaining a styleguide can be very annoying. A component-showcase might be even painful to deal with. ```angular-example``` makes both those things easy. Have a look at the [example](http://johannesjo.github.io/angular-example/#demo).
+Maintaining a styleguide can be very annoying. A component-showcase might be even painful to deal with. ```angular-example``` makes both those things easy build on top of the wonderful [angular-highlightjs] (https://github.com/pc035860/angular-highlightjs). Have a look at the angular-example [example](http://johannesjo.github.io/angular-example/#demo).
 
 [Bug-reports or feature request](https://github.com/johannesjo/angular-example/issues) as well as any other kind of **feedback is highly welcome!**
 
@@ -25,11 +25,11 @@ angular.module('yourApp',[
 ]);
 ```
 
-Using the buttons is easy. Just hand over the promise in question to the promiseBtn-directive and you're good to go:
+Using the component is easy. Just wrap your markup and your good to go:
 
 ```html
 <example>
-  <my-sexy-component>
+  <my-sexy-component ng-init="data=['data', 'you', 'might', 'want']" data="data">
      <p>Some text with <i>style</i>
   </my-sexy-component>
   <some-releated-directive></some-releated-directive>
@@ -37,6 +37,8 @@ Using the buttons is easy. Just hand over the promise in question to the promise
 </example>
 
 ```
+Your components should work as usual and they get a nice source-view attached. If you want to add a little more Information, you can use the description-tag. Everything inside, won't be shown in the source-view.
+
 ## configuration
 There are also some defaults for you to set (if you like). You can do this by using the angularExample-provider:
 ```javascript
@@ -51,8 +53,6 @@ angular.module('exampleApp', [
     descriptionTagName: 'description',
     manipulateSourceViewFn: function (contentsHtml)
     {
-      // remove initial indent
-      contentsHtml = contentsHtml.replace(/(^|\n)    /g, '$1');
       // trim blank lines
       contentsHtml = contentsHtml.replace(/^\s*\n/gm, '');
       return contentsHtml;
