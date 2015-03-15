@@ -8,16 +8,7 @@ angular.module('angularExample')
         // *****************
 
         var config = {
-            spinnerTpl: '<span class="btn-spinner"></span>',
-            disableBtn: true,
-            btnLoadingClass: 'is-loading'
         };
-
-
-        // *****************
-        // SERVICE-FUNCTIONS
-        // *****************
-
 
         // *************************
         // PROVIDER-CONFIG-FUNCTIONS

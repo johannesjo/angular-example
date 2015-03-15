@@ -1,1 +1,35 @@
-EXAMPLES
+<h1>Your components-/style-guide</h1>
+
+<example>
+    <h1>Some headings</h1>
+
+    <h2>Some headings</h2>
+
+    <h3>Some headings</h3>
+    <h4>Some headings</h4>
+    <h5>Some headings</h5>
+    <description>
+        I'm inside the description-tag, this is why I won't show up inside the source-view.
+    </description>
+</example>
+
+
+<example>
+    <h3>h3 Headline</h3>
+
+    <p ng-if="bla">hidden text</p>
+
+    <div>
+        <div>HAHA</div>
+    </div>
+    <button class="btn btn-default"
+            ng-click="bla = !bla">Button
+    </button>
+</example>
+
+<example ng-init="cows=['bettsy','daisy','dora','milky','silky','strumpf']">
+    <description><h4>a list</h4></description>
+    <ul ng-repeat="cow in cows">
+        <li>{{ cow }}</li>
+    </ul>
+</example>

@@ -1,2 +1,3 @@
 angular.module('angularExample', [
+    'hljs'
 ]);
