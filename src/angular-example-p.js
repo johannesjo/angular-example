@@ -10,7 +10,7 @@ angular.module('angularExample')
             previewWrapper: '<div class="example-interactive"/>',
             hljsEl: '<hljs no-escape/>',
             descriptionTagName: 'description',
-            buttonHtml: '<button class="btn">Show Code</button>',
+            buttonHtml: '<button class="btn btn-show-code">Show Code</button>',
             manipulateSourceViewFn: function(contentsHtml) {
                 // remove initial indent
                 contentsHtml = contentsHtml.replace(/(^|\n)    /g, '$1');
