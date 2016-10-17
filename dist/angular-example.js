@@ -4,8 +4,7 @@ angular.module('angularExample', [
 
 
 angular.module('angularExample')
-    .provider('angularExample', function angularExampleProvider()
-    {
+    .provider('angularExample', function angularExampleProvider() {
         'use strict';
 
         // *****************
@@ -16,8 +15,8 @@ angular.module('angularExample')
             previewWrapper: '<div class="example-interactive"/>',
             hljsEl: '<hljs no-escape/>',
             descriptionTagName: 'description',
-            manipulateSourceViewFn: function (contentsHtml)
-            {
+            buttonHtml: '<button class="btn">Show Code</button>',
+            manipulateSourceViewFn: function(contentsHtml) {
                 // remove initial indent
                 contentsHtml = contentsHtml.replace(/(^|\n)    /g, '$1');
                 // trim blank lines
@@ -32,8 +31,7 @@ angular.module('angularExample')
         // *************************
 
         return {
-            extendConfig: function (newConfig)
-            {
+            extendConfig: function(newConfig) {
                 config = angular.extend(config, newConfig);
             },
 
@@ -42,8 +40,7 @@ angular.module('angularExample')
             // ACTUAL FACTORY FUNCTION - used by the directive
             // ************************************************
 
-            $get: function ()
-            {
+            $get: function() {
                 return {
                     config: config
                 };
@@ -83,6 +80,14 @@ angular.module('angularExample')
                 var encodedExample = angular.element(cfg.hljsEl).text(contentsHtml);
                 // append source-view
                 el.append(encodedExample);
+                encodedExample.hide();
+
+                // button el
+                var btnEl = angular.element(cfg.buttonHtml);
+                btnEl.on('click', function() {
+                    encodedExample.attr('style','display:none');
+                });
+                el.append(btnEl);
             }
         };
     }]);

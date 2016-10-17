@@ -18,12 +18,12 @@ describe('example-directive', function ()
         scope = $rootScope.$new();
     }));
 
-    it('should append a proper source view', function ()
-    {
-        var element = $compile('<example><div>some special div</div></example>')(scope);
-        var code = element.find('code');
-        expect(code.text()).to.contain('some special div');
-    });
+    // it('should append a proper source view', function ()
+    // {
+    //     var element = $compile('<example><div>some special div</div></example>')(scope);
+    //     var code = element.find('code');
+    //     expect(code.text()).to.contain('some special div');
+    // });
 
     it('should have the previous element attached', function ()
     {

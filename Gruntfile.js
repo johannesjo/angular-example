@@ -3,8 +3,7 @@
 /* jshint camelcase: false */
 
 
-module.exports = function (grunt)
-{
+module.exports = function(grunt) {
     // Load grunt tasks automatically
     require('load-grunt-tasks')(grunt);
 
@@ -28,7 +27,7 @@ module.exports = function (grunt)
             },
             validationMsgs: {
                 files: ['<%= appConfig.tpl %>/*.html'],
-                tasks: ['ngtemplates:angularExample']
+                tasks: ['ngtemplates:angularPromiseButtons']
             },
             bower: {
                 files: ['bower.json'],
@@ -37,7 +36,7 @@ module.exports = function (grunt)
             js: {
                 files: [
                     '<%= appConfig.app %>/**/*.js',
-                    '<%= appConfig.example %>/**/*.js',
+                    '<%= appConfig.example %>/**/*.js'
                 ],
                 tasks: [
                     'newer:jshint:all',
@@ -119,14 +118,14 @@ module.exports = function (grunt)
             livereload: {
                 options: {
                     open: 'http://localhost:9000/dev.html',
-                    middleware: function (connect)
-                    {
+                    middleware: function(connect) {
                         return [
                             connect.static('.tmp'),
-                            connect().use(
-                                '/bower_components',
-                                connect.static('./bower_components')
-                            ),
+                            connect()
+                                .use(
+                                    '/bower_components',
+                                    connect.static('./bower_components')
+                                ),
                             connect.static(appConfig.app),
                             connect.static(appConfig.example)
                         ];
@@ -136,15 +135,15 @@ module.exports = function (grunt)
             test: {
                 options: {
                     port: 9001,
-                    middleware: function (connect)
-                    {
+                    middleware: function(connect) {
                         return [
                             connect.static('.tmp'),
                             connect.static('test'),
-                            connect().use(
-                                '/bower_components',
-                                connect.static('./bower_components')
-                            ),
+                            connect()
+                                .use(
+                                    '/bower_components',
+                                    connect.static('./bower_components')
+                                ),
                             connect.static(appConfig.app),
                             connect.static(appConfig.example)
                         ];
@@ -215,7 +214,7 @@ module.exports = function (grunt)
             test: {
                 src: [
                     './karma.conf.js',
-                    'Gruntfile.js',
+                    'Gruntfile.js'
                 ],
                 ignorePath: /\.\.\//,
                 exclude: [],
@@ -309,7 +308,7 @@ module.exports = function (grunt)
         },
 
         ngtemplates: {
-            angularExample: {
+            angularPromiseButtons: {
                 cwd: 'src/templates',
                 src: '*.html',
                 dest: 'src/tpls.js',
@@ -399,6 +398,7 @@ module.exports = function (grunt)
                 singleRun: true,
                 options: {
                     files: [
+                        './node_modules/phantomjs-polyfill/bind-polyfill.js',
                         // bower:js
                         'bower_components/angular/angular.js',
                         'bower_components/highlightjs/highlight.pack.js',
@@ -406,7 +406,7 @@ module.exports = function (grunt)
                         'bower_components/angular-animate/angular-animate.js',
                         'bower_components/angular-mocks/angular-mocks.js',
                         // endbower
-                        '<%= appConfig.dist %>/angular-example.min.js',
+                        '<%= appConfig.dist %>/angular-promise-buttons.min.js',
                         '<%= appConfig.app %>/*.spec.js'
                     ],
                     reporters: [
@@ -447,7 +447,7 @@ module.exports = function (grunt)
         md2html: {
             one_file: {
                 options: {
-                    layout: '<%= appConfig.dist %>/example/index.html',
+                    layout: '<%= appConfig.dist %>/example/index.html'
                 },
                 files: [{
                     src: ['*.md'],
@@ -496,8 +496,8 @@ module.exports = function (grunt)
                     // includes files within path
                     {
                         flatten: true,
-                        src: ['.tmp/concat/angular-example.min.js'],
-                        dest: '<%= appConfig.dist %>/angular-example.js'
+                        src: ['.tmp/concat/angular-promise-buttons.min.js'],
+                        dest: '<%= appConfig.dist %>/angular-promise-buttons.js'
                     }
                 ]
             },
@@ -530,14 +530,14 @@ module.exports = function (grunt)
                 commitFiles: [
                     'package.json',
                     'bower.json',
-                    'dist/angular-example.min.js',
-                    'dist/angular-example.js'
+                    'dist/angular-promise-buttons.min.js',
+                    'dist/angular-promise-buttons.js'
                 ],
                 createTag: true,
                 tagName: 'v%VERSION%',
                 tagMessage: 'Version %VERSION%',
                 push: true,
-                pushTo: 'git@github.com:johannesjo/angular-example.git',
+                pushTo: 'git@github.com:johannesjo/angular-promise-buttons.git',
                 gitDescribeOptions: '--tags --always --abbrev=1 --dirty=-d',
                 globalReplace: false
             }
@@ -545,8 +545,7 @@ module.exports = function (grunt)
     });
 
 
-    grunt.registerTask('serve', 'Compile then start a connect web server', function (target)
-    {
+    grunt.registerTask('serve', 'Compile then start a connect web server', function(target) {
         if (target) {
             return grunt.task.run(['build:' + target, 'connect:dist:keepalive']);
         }
@@ -564,8 +563,7 @@ module.exports = function (grunt)
     });
 
 
-    grunt.registerTask('build', function (target)
-    {
+    grunt.registerTask('build', function() {
         grunt.task.run([
             'clean:dist',
             'wiredep:dist',
@@ -589,8 +587,7 @@ module.exports = function (grunt)
         ]);
     });
 
-    grunt.registerTask('release', function (target)
-    {
+    grunt.registerTask('release', function() {
         grunt.task.run([
             'test:unitSingleRun',
             'ghp',
@@ -598,22 +595,19 @@ module.exports = function (grunt)
         ]);
     });
 
-    grunt.registerTask('ghp', function (target)
-    {
+    grunt.registerTask('ghp', function() {
         grunt.task.run([
             'build',
             'gh-pages'
         ]);
     });
 
-    grunt.registerTask('server', 'DEPRECATED TASK. Use the "serve" task instead', function (target)
-    {
+    grunt.registerTask('server', 'DEPRECATED TASK. Use the "serve" task instead', function(target) {
         grunt.log.warn('The `server` task has been deprecated. Use `grunt serve` to start a server.');
         grunt.task.run(['serve:' + target]);
     });
 
-    grunt.registerTask('test', function (target)
-    {
+    grunt.registerTask('test', function(target) {
         target = target || 'unit';
         if (target === 'all') {
             grunt.task.run([
