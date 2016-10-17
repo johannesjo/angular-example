@@ -39,6 +39,7 @@ angular.module('angularExample')
                     var btnEl = angular.element(cfg.buttonHtml);
                     btnEl.on('click', function() {
                         encodedExample.attr('style', 'display:block;');
+                        btnEl.remove();
                     });
                     el.append(btnEl);
                 }
