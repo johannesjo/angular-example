@@ -1,5 +1,4 @@
-describe('example-directive', function ()
-{
+describe('example-directive', function() {
     'use strict';
 
     var scope,
@@ -9,8 +8,7 @@ describe('example-directive', function ()
 
     beforeEach(module('angularExample'));
 
-    beforeEach(inject(function (_$rootScope_, _$compile_, _$timeout_)
-    {
+    beforeEach(inject(function(_$rootScope_, _$compile_, _$timeout_) {
         $rootScope = _$rootScope_;
         $compile = _$compile_;
         $timeout = _$timeout_;
@@ -25,17 +23,17 @@ describe('example-directive', function ()
     //     expect(code.text()).to.contain('some special div');
     // });
 
-    it('should have the previous element attached', function ()
-    {
+    it('should have the previous element attached', function() {
         var exampleContent = '<span>some special span</span>';
         var element = $compile('<example>' + exampleContent + '</example>')(scope);
         var previewWrapper = angular.element(element.children()[0]);
 
-        expect(previewWrapper.text()).to.contain('some special span');
+        expect(previewWrapper.text())
+            .to
+            .contain('some special span');
     });
 
-    it('the directives in the preview-wrapper should work as usual', function ()
-    {
+    it('the directives in the preview-wrapper should work as usual', function() {
         var exampleContent = '<button ng-click="clickMe()">Click</button>';
         var element = $compile('<example>' + exampleContent + '</example>')(scope);
         var previewWrapper = angular.element(element.children()[0]);
@@ -43,14 +41,15 @@ describe('example-directive', function ()
 
 
         scope.count = 0;
-        scope.clickMe = function ()
-        {
+        scope.clickMe = function() {
             scope.count++;
         };
 
         button.triggerHandler('click');
         button.triggerHandler('click');
 
-        expect(scope.count).to.equal(2);
+        expect(scope.count)
+            .to
+            .equal(2);
     });
 });
