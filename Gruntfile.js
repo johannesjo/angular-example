@@ -27,7 +27,7 @@ module.exports = function(grunt) {
             },
             validationMsgs: {
                 files: ['<%= appConfig.tpl %>/*.html'],
-                tasks: ['ngtemplates:angularPromiseButtons']
+                tasks: ['ngtemplates:angularExample']
             },
             bower: {
                 files: ['bower.json'],
@@ -308,7 +308,7 @@ module.exports = function(grunt) {
         },
 
         ngtemplates: {
-            angularPromiseButtons: {
+            angularExample: {
                 cwd: 'src/templates',
                 src: '*.html',
                 dest: 'src/tpls.js',
