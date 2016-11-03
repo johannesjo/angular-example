@@ -401,8 +401,8 @@ module.exports = function(grunt) {
                         './node_modules/phantomjs-polyfill/bind-polyfill.js',
                         // bower:js
                         'bower_components/angular/angular.js',
-                        'bower_components/angular-highlightjs/build/angular-highlightjs.js',
                         'bower_components/highlightjs/highlight.pack.js',
+                        'bower_components/angular-highlightjs/build/angular-highlightjs.js',
                         'bower_components/angular-animate/angular-animate.js',
                         'bower_components/angular-mocks/angular-mocks.js',
                         // endbower
