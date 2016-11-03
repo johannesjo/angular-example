@@ -39,11 +39,5 @@
     "angular-mocks": "~1.5.8"
   },
   "overrides": {
-    "angular-highlightjs": {
-      "dependencies": {
-        "angular": "~1.5.8",
-        "highlightjs": "^9.7.0"
-      }
-    }
   }
 }
